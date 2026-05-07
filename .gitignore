@@ -1,6 +1,6 @@
-.include/
-.x86/
-.x64/
+include/
+x86/
+x64/
 
 *.txt
 *.bak
