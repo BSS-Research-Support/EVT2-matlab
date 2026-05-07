@@ -23,15 +23,15 @@ EVT2-matlab/
 ├── x64
 ├── x86
 ├── build_evt2.m
-├── evt_pulse.m
-├── evt_test.m
 ├── evt2.c
 ├── evt2.h
+├── evt_pulse.m
+├── evt_test.m
+├── .gitignore
+├── hidapi.dll
 ├── LICENSE
 ├── README.md
-├── rsp_test.m
-├── hidapi.dll
-└── test_evt2.m
+└── rsp_test.m
 ```
 
 ### Linux (Ubuntu/Debian)
