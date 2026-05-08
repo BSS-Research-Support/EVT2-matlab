@@ -6,7 +6,7 @@ This repository contains a Matlab binding to communicate with the EVT-2 (+deriva
 ## Features
 - **Platform Independent:** Works on Windows and Linux.
 - **Simple API:** Direct commands for `open`, `close`, `write`, `clear`, `set`, `pulse` and `read`.
-- **Can open multiple EVT devices at once:** use unique divice handles to address the right device.
+- **Can open multiple EVT devices at once:** use unique device handles to address the right device.
 
 ## Prerequisites
 
@@ -94,4 +94,11 @@ evt2('flush', h);
 evt2('close', h);
 ```
 
+### Example scripts
+
+m-file | description
+------ | -----------
+`evt_pulse.m` | shows how to use the pulse function
+`evt_test.m` | example to address individual outputs
+`resp_test.m` | waits for input from an EVT response box (RSP)
 
