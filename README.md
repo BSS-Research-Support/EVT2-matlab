@@ -6,6 +6,7 @@ This repository contains a Matlab binding to communicate with the EVT-2 (+deriva
 ## Features
 - **Platform Independent:** Works on Windows and Linux.
 - **Simple API:** Direct commands for `open`, `close`, `write`, `clear`, `set`, `pulse` and `read`.
+- **Can open multiple EVT devices at once:** use unique divice handles to address the right device.
 
 ## Prerequisites
 
@@ -30,8 +31,10 @@ EVT2-matlab/
 ├── .gitignore
 ├── hidapi.dll
 ├── LICENSE
+├── listDevs.m
 ├── README.md
 └── rsp_test.m
+
 ```
 
 ### Linux (Ubuntu/Debian)
@@ -62,23 +65,33 @@ build_evt2
 
 The script will automatically detect your OS, locate the necessary headers/libraries, and produce the `evt2` MEX file.
 
-## Usage Example
+## Usage Examples
 
 ```matlab
-% Open the device (VID, PID)
-evt2('open', 0x0808, 0x0001);
+% List all connected HID devices
+devs = evt2('list');
+listDevs(devs);
 
-% Write a value
-evt2('write', 1); 
+x = input('Enter a number: ');
 
-% Pulse a value (value, duration_ms)
-evt2('pulse', 255, 500);
+% Open a device by its index from the list (returns a handle h)
+h = evt2('open', x);
 
-% Read data
-data = evt2('read');
+% Write a value to the device
+evt2('write', h, 170); 
+
+% Pulse a value (handle, value, duration_ms)
+evt2('pulse', h, 255, 500);
+
+% Read data with an optional timeout in ms (max 10,000ms)
+% data = evt2('read', h, timeout_ms);
+data = evt2('read', h, 1000);
+
+% Flush the read buffer
+evt2('flush', h);
 
 % Close the device
-evt2('close');
+evt2('close', h);
 ```
 
 

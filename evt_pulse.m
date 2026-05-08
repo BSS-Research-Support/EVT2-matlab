@@ -1,7 +1,12 @@
 % Here we open the EVT-2 device:
-evt2('open', 0x0808, 0x0001); % use USB VID, PID
+devs = evt2('list');
+listDevs(devs);
 
-evt2('clear'); % clear outputs
-evt2('pulse', 170, 1000); % First number is value, 2nd is duration in ms.
+x = input('Enter a number: ');
 
-evt2('close');
+handle = evt2('open', x);
+
+evt2('clear', handle); % clear outputs
+evt2('pulse', handle, 170, 1000); % First number is value, 2nd is duration in ms.
+
+evt2('close', handle);

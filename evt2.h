@@ -10,8 +10,6 @@
  extern "C" {
 #endif
 
-#define VENDOR_ID      0x0808  // rWave vendor ID. This should never change
-#define PRODUCT_ID     0x0001  // Product ID. Set this product ID to match your device.
 
 enum commandInstructions {
 	CMD_CLR = 0x00,     // Clear all outputs
