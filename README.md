@@ -55,6 +55,23 @@ EVT2-matlab/
 
    - `ls -l /dev/hidraw0` must give: r+w access to group `crw-rw---- 1 root plugdev 241, 0 mei  4 14:33 /dev/hidraw0`
 
+```
+EVT2-matlab/
+│
+├── .git
+├── build_evt2.m
+├── evt2.c
+├── evt2.h
+├── evt_pulse.m
+├── evt_test.m
+├── .gitignore
+├── LICENSE
+├── listDevs.m
+├── README.md
+└── rsp_test.m
+
+```
+
 ## Building the MEX file
 
 A unified build script is provided. In the MATLAB Command Window, simply run:
@@ -99,6 +116,6 @@ evt2('close', h);
 m-file | description
 ------ | -----------
 `evt_pulse.m` | shows how to use the pulse function
-`evt_test.m` | example to address individual outputs
+`evt_test.m` | example on how to address individual outputs
 `resp_test.m` | waits for input from an EVT response box (RSP)
 
