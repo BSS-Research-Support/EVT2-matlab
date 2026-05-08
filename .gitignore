@@ -6,3 +6,4 @@ x64/
 *.bak
 *.dll
 *.mexw64
+*.mexa64
